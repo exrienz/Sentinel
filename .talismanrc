@@ -77,7 +77,7 @@ fileignoreconfig:
 - filename: src/default/sidebars.json
   checksum: 5d03d4062acaeba919c87d3fed04aea1f6fc62e167634a5a13ab0dc679f53af7
 - filename: src/domain/entity/finding.py
-  checksum: 0de112cf9e55989ce4535898ab790fbdf95f196301e6b72fa8696a81c17b7a3d
+  checksum: 2081e540a4aed46f797aee5e3d0c08ff7646ffad7dca9c701405835bbca4995c
 - filename: src/presentation/html/templates/pages/product/component/findingFilterModal.html
   checksum: ac39ff94acccbc9a01b829f5990319abe3c7aea81ef3f5d76762174589bc857f
 - filename: src/presentation/html/utils.py
@@ -118,4 +118,6 @@ fileignoreconfig:
   checksum: 6c57d290493c6e095b83a61b0493fac4d43763b6c21186dceba0ace48596d83c
 - filename: src/presentation/html/templates/pages/product/report_template.html
   checksum: 7f6c6a4c3ebb53a908ccdbc73b3a6770f021d06a167d936b21f304c33f44e044
+- filename: src/presentation/api/dependencies.py
+  checksum: 1066dd3fd733f84e226661d522ab525cca1acd122dbe053f763094b3953341a9
 version: ""

@@ -32,6 +32,8 @@ async def verify_auth():
 
 def _expiration_handler(user_info: dict):
     expiration_seconds = user_info.get("exp")
+    if user_info.get("service_account"):
+        return
     if expiration_seconds is None:
         raise
 
@@ -49,6 +51,11 @@ def _expiration_handler(user_info: dict):
 async def get_allowed_product_ids(user: Annotated[dict, Depends(verify_auth)]):
     if not user.get("required_project_access", True):
         return None
+    if user.get("service_account"):
+        product_ids = user.get("service_product_id")
+        if product_ids == "all":
+            return None
+        return [product_ids]
     async with AsyncSessionFactory() as session:
         stmt = (
             select(Product.id)
@@ -62,6 +69,11 @@ async def get_allowed_product_ids(user: Annotated[dict, Depends(verify_auth)]):
 async def get_allowed_project_ids(user: Annotated[dict, Depends(verify_auth)]):
     if not user.get("required_project_access", True):
         return None
+    if user.get("service_account"):
+        project_ids = user.get("service_project_id")
+        if project_ids == "all":
+            return None
+        return [project_ids]
     async with AsyncSessionFactory() as session:
         stmt = (
             select(Environment.project_id)

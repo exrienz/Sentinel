@@ -3,7 +3,10 @@ class UnauthorizedError(Exception):
 
 
 class InvalidAuthentication(Exception):
-    pass
+    def __init__(self, msg: str | None = None) -> None:
+        self.msg = "Invalid Credentials"
+        if msg:
+            self.msg = msg
 
 
 class InactiveUser(Exception):

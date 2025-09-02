@@ -29,7 +29,7 @@ async def invalidAuthentication(request: Request, exc: InvalidAuthentication):
     return templates.TemplateResponse(
         request,
         "error/alert.html",
-        {"msg": "Invalid Credential"},
+        {"msg": exc.msg},
         status_code=401,
         headers={
             "HX-Retarget": "#error-alert-id",

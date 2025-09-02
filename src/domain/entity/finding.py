@@ -187,7 +187,9 @@ class Log(Base):
     )
     product = relationship("Product")
 
-    uploader_id: Mapped[Optional[UUID]] = mapped_column(ForeignKey("auth_user.id"))
+    uploader_id: Mapped[Optional[UUID]] = mapped_column(
+        ForeignKey("auth_user.id", ondelete="SET NULL")
+    )
     uploader = relationship("User")
 
 

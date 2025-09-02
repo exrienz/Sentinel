@@ -1,3 +1,4 @@
+from typing import Optional
 from uuid import UUID
 
 from pydantic import BaseModel
@@ -14,3 +15,4 @@ class UserUpdateSchema(BaseModel):
     # email: str
     active: bool
     role_id: UUID
+    login_via_email: Optional[bool]

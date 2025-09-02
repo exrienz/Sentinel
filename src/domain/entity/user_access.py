@@ -16,7 +16,7 @@ class User(Base):
     username: Mapped[str]
     active: Mapped[bool] = mapped_column(server_default="f")
     password: Mapped[Optional[str]]
-    login_via_email: Mapped[bool] = mapped_column(server_default="f")
+    login_via_email: Mapped[bool] = mapped_column(server_default="t")
     deleted_at: Mapped[Optional[datetime]]
 
     role_id: Mapped[UUID] = mapped_column(ForeignKey("role.id"))

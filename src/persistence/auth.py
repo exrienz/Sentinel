@@ -23,7 +23,7 @@ class AuthRepository(BaseRepository[User]):
 
     async def assign_role_and_activation(self, data: dict):
         role, active = "Owner", False
-        usr_stmt = select(func.count(User.id))
+        usr_stmt = select(func.count(User.id)).join(Role).where(Role.name != "Service")
         query = await self.session.execute(usr_stmt)
         user_cnt = query.scalar_one()
         if user_cnt == 0:

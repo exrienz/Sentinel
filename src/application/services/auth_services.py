@@ -53,6 +53,8 @@ class AuthService:
             raise InvalidAuthentication
         if not user.active:
             raise InactiveUser
+        if not user.login_via_email:
+            raise InvalidAuthentication("Login via email disabled for this account!")
         high_priviledge = False
         if user.role.name in ("ITSE"):
             high_priviledge = True

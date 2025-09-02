@@ -47,5 +47,4 @@ async def upload_file(
 
     uploader = UploadFileServiceGeneral(session, formFile, product_id, data)
     fileupload = await uploader.upload()
-    await fileupload.upload()
     await service.calculate(product_id, fileupload.scan_date)
